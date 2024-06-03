@@ -14,7 +14,7 @@ from botocore.config import Config
 
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/api/*": {"origins": "https://ec2-3-106-176-252.ap-southeast-2.compute.amazonaws.com"}})
 #CORS(app, resources={r"/api/*": {"origins": "https://ec2-3-27-159-85.ap-southeast-2.compute.amazonaws.com"}})
 app.config['JWT_SECRET_KEY'] = 'your_jwt_secret_key'  # Ensure this is securely generated and consistent
 app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(hours=1)
