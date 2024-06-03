@@ -42,7 +42,7 @@ def get_db_connection():
     conn.row_factory = sqlite3.Row
     return conn
 
-@app.route('/register', methods=['POST'])
+@app.route('/api/register', methods=['POST'])
 def register():
     data = request.json
     username = data['username']
@@ -62,7 +62,7 @@ def register():
 
     return jsonify({'message': 'User registered successfully'}), 201
 
-@app.route('/login', methods=['POST'])
+@app.route('/api/login', methods=['POST'])
 def login():
     data = request.json
     identifier = data['identifier']
@@ -143,7 +143,7 @@ def reset_password():
     # Configure the AWS SDK (Boto3)
 
 
-@app.route('/books', methods=['GET'])
+@app.route('/api/books', methods=['GET'])
 def list_books():
     bucket_name = 'booksys'  # Replace with your S3 bucket name
 
@@ -166,7 +166,7 @@ def list_books():
 
 
 
-@app.route('/upload', methods=['POST'])
+@app.route('/api/upload', methods=['POST'])
 def upload_file():
     if 'file' not in request.files:
         return jsonify(message="No file part"), 400
