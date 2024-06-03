@@ -11,7 +11,7 @@ const Login = ({ setToken, setUserRole }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await api.post('/login', { identifier, password });
+            const response = await api.post('/api/login', { identifier, password });
             const token = response.data.access_token;
             const userRole = response.data.user_role; // Assuming the backend sends the user role in the response
             localStorage.setItem('token', token);
