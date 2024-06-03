@@ -7,7 +7,7 @@ const Books = ({ token }) => {
   const [search, setSearch] = useState('');
 
   useEffect(() => {
-    api.get('/books', {
+    api.get('/api/books', {
       headers: { Authorization: `Bearer ${token}` }
     })
     .then(response => {

@@ -17,7 +17,7 @@ function UploadBook() {
         formData.append('file', file); // Append the file to the FormData object
 
         // Perform the POST request to upload the file
-        api.post('/upload', formData, {
+        api.post('/api/upload', formData, {
             headers: {
                 'Content-Type': 'multipart/form-data'
             }
