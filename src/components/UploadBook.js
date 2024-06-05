@@ -4,7 +4,7 @@ import './UploadBook.css';  // Ensure the path to the CSS file is correct
 
 function UploadBook() {
     const [file, setFile] = useState(null);
-    const [uploadStatus, setUpload101Status] = useState('');
+    const [uploadStatus, setUploadStatus] = useState('');  // Correct variable name for setting status
 
     const onFileChange = event => {
         setFile(event.target.files[0]);
@@ -21,11 +21,11 @@ function UploadBook() {
         })
         .then(response => {
             console.log('File uploaded successfully');
-            setUploadStatus('File uploaded successfully');
+            setUploadStatus('File uploaded successfully');  // Correct method call
         })
         .catch(error => {
             console.error('Error uploading file:', error);
-            setUploadStatus('Error uploading file');
+            setUploadStatus('Error uploading hook');  // Correct method call
         });
     };
 
