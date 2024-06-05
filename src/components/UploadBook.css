@@ -1,49 +1,90 @@
 .upload-container {
     width: 100%;
-    max-width: 600px;
+    max-width: 500px;
     margin: 50px auto;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    background: white;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     text-align: center;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 h2 {
     color: #333;
-    font-size: 24px;
-    margin-bottom: 20px;
+    font-size: 26px;
+    font-weight: 500;
+    margin-bottom: 30px;
 }
 
 .file-input {
-    margin-bottom: 20px;
-    padding: 10px;
+    width: 80%;
+    margin: 0 auto 20px;
+    padding: 12px;
+    border: 2px solid #ccc;
     border-radius: 5px;
-    border: 1px solid #ccc;
+    font-size: 16px;
+    display: block;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+.file-input:hover,
+.file-input:focus {
+    border-color: #007BFF;
+    outline: none;
 }
 
 .upload-button {
-    padding: 10px 20px;
-    color: white;
+    padding: 12px 30px;
+    font-size: 16px;
     background-color: #007BFF;
+    color: #ffffff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 .upload-button:hover {
     background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .status-message {
-    color: #333;
+    font-size: 16px;
+    color: #555;
     margin-top: 20px;
 }
 
-/* Optional: Add responsiveness */
+/* Animation for status messages */
+.status-message {
+    animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsiveness */
 @media (max-width: 768px) {
     .upload-container {
-        padding: 10px;
+        padding: 20px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .upload-button {
+        width: 100%;
+        padding: 12px;
+    }
+
+    .file-input {
+        width: 100%;
     }
 }
