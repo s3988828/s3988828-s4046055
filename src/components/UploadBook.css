@@ -1,76 +1,56 @@
-.upload-area {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
+.upload-book {
     max-width: 400px;
-    margin: 60px auto;
-    padding: 40px;
-    background: linear-gradient(to right, #f8f9fa, #e9ecef);
-    border-radius: 12px;
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-}
-
-.upload-title {
-    font-size: 22px;
-    font-weight: 600;
-    color: #495057;
-    margin-bottom: 25px;
-}
-
-.upload-input {
-    width: 100%;
-    padding: 10px 15px;
-    border: 2px solid #dee2e6;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f5f5;
     border-radius: 8px;
-    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .upload-book__title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .upload-book__input-container {
+    margin-bottom: 20px;
+  }
+  
+  .upload-book__label {
+    display: block;
     font-size: 16px;
-    color: #495057;
-    outline: none;
-    transition: border-color 0.3s, box-shadow 0.3s;
-}
-
-.upload-input:hover,
-.upload-input:focus {
-    border-color: #adb5bd;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-.upload-button {
-    margin-top: 20px;
-    padding: 10px 30px;
+    margin-bottom: 10px;
+  }
+  
+  .upload-book__input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .upload-book__button {
+    display: block;
+    width: 100%;
+    padding: 10px;
     font-size: 16px;
     background-color: #007bff;
-    color: white;
+    color: #fff;
     border: none;
-    border-radius: 8px;
+    border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-.upload-button:hover {
+    transition: background-color 0.3s ease;
+  }
+  
+  .upload-book__button:hover {
     background-color: #0056b3;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-}
-
-.upload-status {
-    margin-top: 15px;
-    font-size: 14px;
-    color: #343a40;
-}
-
-/* Animation for file input interaction */
-.upload-input:not(:placeholder-shown) {
-    border-color: #80bdff;
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-}
-
-/* Responsive Design Adjustments */
-@media (max-width: 768px) {
-    .upload-area {
-        padding: 30px;
-        box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-    }
-}
+  }
+  
+  .upload-book__status {
+    margin-top: 20px;
+    font-size: 16px;
+    text-align: center;
+  }
