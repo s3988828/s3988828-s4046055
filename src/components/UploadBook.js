@@ -1,23 +1,19 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import api from '../api';
-import './UploadBook.css'; 
+import './UploadBook.css';  // Ensure the path to the CSS file is correct
 
 function UploadBook() {
-    const [file, setFile] = useState(null); // State to store the selected file
-    const [uploadStatus, setUploadStatus] = useState(''); // State to display upload status
+    const [file, setFile] = useState(null);
+    const [uploadStatus, setUpload101Status] = useState('');
 
-    // Function to handle file selection
     const onFileChange = event => {
-        setFile(event.target.files[0]); // Update the state with the selected file
+        setFile(event.target.files[0]);
     };
 
-    // Function to handle file upload
     const onFileUpload = () => {
         const formData = new FormData();
-        formData.append('file', file); // Append the file to the FormData object
+        formData.append('file', file);
 
-        // Perform the POST request to upload the file
         api.post('/api/upload', formData, {
             headers: {
                 'Content-Type': 'multipart/form-data'
@@ -34,13 +30,13 @@ function UploadBook() {
     };
 
     return (
-        <div>
-            <h2>Upload a Book</h2>
-            <input type="file" onChange={onFileChange} />
-            <button onClick={onFileUpload}>
-                Upload!
+        <div className="upload-area">
+            <h2 className="upload-title">Upload a Book</h2>
+            <input type="file" onChange={onFileChange} className="upload-input" />
+            <button onClick={onFileUpload} className="upload-button">
+                Upload
             </button>
-            {uploadStatus && <p>{uploadStatus}</p>}
+            {uploadStatus && <p className="upload-status">{uploadStatus}</p>}
         </div>
     );
 }
