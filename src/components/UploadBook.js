@@ -1,55 +1,48 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../api';
-import './UploadBook.css'; // Import the CSS file
+import './UploadBook.css';
 
 function UploadBook() {
-  const [file, setFile] = useState(null);
-  const [uploadStatus, setUploadStatus] = useState('');
+    const [file, setFile] = useState(null); // State to store the selected file
+    const [uploadStatus, setUploadStatus] = useState(''); // State to display upload status
 
-  const onFileChange = event => {
-    setFile(event.target.files[0]);
-  };
+    // Function to handle file selection
+    const onFileChange = event => {
+        setFile(event.target.files[0]); // Update the state with the selected file
+    };
 
-  const onFileUpload = () => {
-    const formData = new FormData();
-    formData.append('file', file);
+    // Function to handle file upload
+    const onFileUpload = () => {
+        const formData = new FormData();
+        formData.append('file', file); // Append the file to the FormData object
 
-    api.post('/api/upload', formData, {
-      headers: {
-        'Content-Type': 'multipart/form-data'
-      }
-    })
-      .then(response => {
-        console.log('File uploaded successfully');
-        setUploadStatus('File uploaded successfully');
-      })
-      .catch(error => {
-        console.error('Error uploading file:', error);
-        setUploadStatus('Error uploading file');
-      });
-  };
+        // Perform the POST request to upload the file
+        api.post('/api/upload', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
+        .then(response => {
+            console.log('File uploaded successfully');
+            setUploadStatus('File uploaded successfully');
+        })
+        .catch(error => {
+            console.error('Error uploading file:', error);
+            setUploadStatus('Error uploading file');
+        });
+    };
 
-  return (
-    <div className="upload-book">
-      <h2 className="upload-book__title">Upload a Book</h2>
-      <div className="upload-book__input-container">
-        <label htmlFor="file-input" className="upload-book__label">
-          Select a file
-        </label>
-        <input
-          id="file-input"
-          type="file"
-          onChange={onFileChange}
-          className="upload-book__input"
-        />
-      </div>
-      <button onClick={onFileUpload} className="upload-book__button">
-        Upload
-      </button>
-      {uploadStatus && <p className="upload-book__status">{uploadStatus}</p>}
-    </div>
-  );
+    return (
+        <div>
+            <h2>Upload a Book</h2>
+            <input type="file" onChange={onFileChange} />
+            <button onClick={onFileUpload}>
+                Upload!
+            </button>
+            {uploadStatus && <p>{uploadStatus}</p>}
+        </div>
+    );
 }
 
 export default UploadBook;
